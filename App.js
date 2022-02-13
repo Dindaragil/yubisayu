@@ -7,29 +7,12 @@
  */
  import 'react-native-gesture-handler';
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native'
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 import AppNavContainer from './src/navigations';
+import GlobalProvider from './src/context/reducers/Provider';
 
 const App = () => {
   return (
-<AppNavContainer />
+    <GlobalProvider><AppNavContainer /></GlobalProvider>
   );
 };
 

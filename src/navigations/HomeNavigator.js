@@ -2,9 +2,9 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Text, View } from 'react-native';
 import { BOOK_DETAIL, BOOK_LIST, CREATE_BOOK } from '../constans/routeNames';
-import Books from '../screens/Books';
 import BookDetail from '../screens/BookDetail';
 import CreateBook from '../screens/CreateBook';
+import Books from '../screens/Books';
 
 const HomeNavigator = () => {
     const Stack = createNativeStackNavigator();
