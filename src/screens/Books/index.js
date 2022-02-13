@@ -1,10 +1,11 @@
 import React from "react";
 import { Text, View } from "react-native";
+import Container from "../../components/common/Container/index";
 const Books = () => {
     return (
-        <View>
+        <Container>
             <Text>Hi Books!</Text>
-        </View>
+        </Container>
     )
 }
 export default Books;
