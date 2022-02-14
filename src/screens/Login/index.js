@@ -10,7 +10,7 @@ const Login = () => {
                 label="Username"
                 onChangeText={onChangeText}
                 value={text}
-                error={"This field is required!"}
+                // error={"This field is required!"}
             />
             <Input
                 label="Password"
