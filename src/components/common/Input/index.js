@@ -2,12 +2,12 @@ import React from "react";
 import { ScrollView, Text, TextInput, View } from "react-native";
 import colors from "../../../assets/theme/colors";
 import styles from "./styles";
-const Input = ({ onChangeText, style, value, label, icon, iconPosition, error }) => {
+const Input = ({ ...props }) => {
     const [focused, setFocused] = React.useState(false)
     getFlexDirection = () => {
-        if (icon && iconPosition === "left") {
+        if (props.icon && props.iconPosition === "left") {
             return "row"
-        } else if (icon && iconPosition === "right") {
+        } else if (props.icon && props.iconPosition === "right") {
             return "row-reverse"
         } else {
             return "row"
@@ -18,7 +18,7 @@ const Input = ({ onChangeText, style, value, label, icon, iconPosition, error })
         if (focused) {
             return colors.primary
         }
-        else if (error) {
+        else if (props.error) {
             return colors.danger
         } else {
             return colors.grey
@@ -26,18 +26,20 @@ const Input = ({ onChangeText, style, value, label, icon, iconPosition, error })
     }
     return (
         <View style={styles.inputContainer}>
-            {label && <Text>{label}</Text>}
-            <View style={[styles.wrapper, { flexDirection: getFlexDirection(), borderColor: getBorderColor() }, { alignItems: icon ? "center" : "baseline" }]}>
-                <View>{icon && icon}</View>
+            {props.label && <Text>{props.label}</Text>}
+            <View style={[styles.wrapper, { flexDirection: getFlexDirection(), borderColor: getBorderColor() }, { alignItems: props.icon ? "center" : "baseline" }]}>
+                <View>{props.icon && props.icon}</View>
                 <TextInput
                     style={styles.textInput}
-                    onChangeText={onChangeText}
-                    value={value}
+                    onChangeText={props.onChangeText}
+                    value={props.value}
                     onFocus={() => { setFocused(true) }}
                     onBlur={() => { setFocused(false) }}
+                    placeholder={props.placeholder}
+                    secureTextEntry={props.secureTextEntry}
                 />
             </View>
-            {error && <Text style={styles.error}>{error}</Text>}
+            {props.error && <Text style={styles.error}>{props.error}</Text>}
         </View>
     )
 }
