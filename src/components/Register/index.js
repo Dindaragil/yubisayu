@@ -5,12 +5,19 @@ import Container from "../common/Container";
 import Input from "../common/Input";
 import CustomButton from "../CustomButton";
 import styles from "./styles";
-import REGISTER from "../../constans/routeNames"
-const LoginComponent = () => {
+import LOGIN from "../../constans/routeNames"
+
+const RegisterComponent = () => {
     const {navigate} = useNavigation()
     return (
         <Container>
-            <Text style={styles.titlePage}>LOGIN</Text>
+            <Text style={styles.titlePage}>REGISTER</Text>
+            <Input
+                label="Full Name"
+                placeholder="Enter your full name"
+                style={styles.inputText}
+                // error={"This field is required!"}
+            />
             <Input
                 label="Username"
                 placeholder="Enter your username"
@@ -26,10 +33,10 @@ const LoginComponent = () => {
             />
             <CustomButton secondary title="Login" />
             <View style={styles.createSection}>
-                <Text style={styles.infoText}>First Time Here?</Text>
-                <TouchableOpacity onPress={() => {navigate('Register')}} style={styles.linkBtn}><View><Text style={styles.linkBtn}>Register</Text></View></TouchableOpacity>
+                <Text style={styles.infoText}>Already have account?</Text>
+                <TouchableOpacity onPress={() => {navigate('Login')}} style={styles.linkBtn}><View><Text style={styles.linkBtn}>Login</Text></View></TouchableOpacity>
             </View>
         </Container>
     )
 }
-export default LoginComponent;
+export default RegisterComponent;
