@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Text, View } from "react-native";
 import RegisterComponent from "../../components/Register";
+import envs from "../../config/env"
 const Register = () => {
     const [form, setForm] = useState({});
     const [error, setError] = useState({});
