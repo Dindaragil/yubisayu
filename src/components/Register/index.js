@@ -7,7 +7,7 @@ import CustomButton from "../CustomButton";
 import styles from "./styles";
 import LOGIN from "../../constans/routeNames"
 
-const RegisterComponent = () => {
+const RegisterComponent = ({onSubmit, onChange, form, error}) => {
     const {navigate} = useNavigation()
     return (
         <Container>
@@ -16,13 +16,19 @@ const RegisterComponent = () => {
                 label="Full Name"
                 placeholder="Enter your full name"
                 style={styles.inputText}
-                // error={"This field is required!"}
+                onChangeText={(value) => {
+                    onChange({name: "name", value})
+                }}
+                error={error.name}
             />
             <Input
-                label="Username"
-                placeholder="Enter your username"
+                label="Email"
+                placeholder="Enter your email"
                 style={styles.inputText}
-                // error={"This field is required!"}
+                onChangeText={(value) => {
+                    onChange({name: "email", value})
+                }}
+                error={error.email}
             />
             <Input
                 label="Password"
@@ -30,8 +36,21 @@ const RegisterComponent = () => {
                 secureTextEntry={true}
                 iconPosition="right"
                 placeholder="Enter your password"
+                onChangeText={(value) => {
+                    onChange({name: "password", value})
+                }}
+                error={error.password}
             />
-            <CustomButton secondary title="Login" />
+            <Input
+                label="Role"
+                placeholder="Enter your role"
+                style={styles.inputText}
+                onChangeText={(value) => {
+                    onChange({name: "role", value})
+                }}
+                error={error.role}
+            />
+            <CustomButton onPress={onSubmit} secondary title="Register" />
             <View style={styles.createSection}>
                 <Text style={styles.infoText}>Already have account?</Text>
                 <TouchableOpacity onPress={() => {navigate('Login')}} style={styles.linkBtn}><View><Text style={styles.linkBtn}>Login</Text></View></TouchableOpacity>

@@ -15,12 +15,13 @@ const Input = ({ ...props }) => {
     }
 
     getBorderColor = () => {
+        if (props.error) {
+            return colors.danger
+        } 
         if (focused) {
             return colors.primary
         }
-        else if (props.error) {
-            return colors.danger
-        } else {
+        else {
             return colors.grey
         }
     }

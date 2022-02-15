@@ -12,8 +12,8 @@ const LoginComponent = () => {
         <Container>
             <Text style={styles.titlePage}>LOGIN</Text>
             <Input
-                label="Username"
-                placeholder="Enter your username"
+                label="Email"
+                placeholder="Enter your email"
                 style={styles.inputText}
                 // error={"This field is required!"}
             />
